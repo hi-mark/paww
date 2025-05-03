@@ -2,7 +2,7 @@
 
 import InputField from "@/components/Form/InputField";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, MouseEventHandler, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface FormData {
   userName: string;
