@@ -1,0 +1,21 @@
+body {
+  background-color: var(--paww-blue);
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-wrapper {
+  background-color: var(--white);
+  padding: 2rem 4.5rem 2rem 3rem;
+  border-radius: var(--pop-up-radius);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  min-width: 600px;
+  max-width: 90vw;
+}
