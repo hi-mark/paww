@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import styles from "./InputField.module.css";
 
 type ErrorProps = {
@@ -24,7 +25,12 @@ export const ErrorMessage = ({ msg, name }: ErrorProps) => {
   );
 };
 
-export const InputLabel = (props: any) => {
+type InputLabelProps = {
+  name: string;
+  children: ReactNode;
+};
+
+export const InputLabel = (props: InputLabelProps) => {
   return (
     <label htmlFor={`input-${props.name}`} className={styles.inputLabel}>
       {props.children}
@@ -32,12 +38,15 @@ export const InputLabel = (props: any) => {
   );
 };
 
-export const InputWrapper = (props: any) => {
+type InputWrapperProps = {
+  children: ReactNode;
+};
+export const InputWrapper = (props: InputWrapperProps) => {
   return <div className={styles.inputWrapper}>{props.children}</div>;
 };
 
 export const InputField = (props: InputFieldProps) => {
-  const { type = "text", label, value, name, error, ...rest } = props;
+  const { type = "text", label, name, error, ...rest } = props;
 
   return (
     <InputWrapper>
