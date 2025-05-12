@@ -6,7 +6,7 @@ export function NavbarContent() {
   return (
     <div className={styles.navContainer}>
       <Link href="" aria-label="Link to Home Page">
-        <img className={styles.logo} src="/images/logo.svg" alt="Paww Logo" />
+        <img className={styles.logo} src="/images/Logo.svg" alt="Paww Logo" />
       </Link>
       <Link href="/logout" className={styles.logOut}>
         Log Out
