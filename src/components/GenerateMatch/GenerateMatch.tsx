@@ -17,7 +17,6 @@ export const GenerateMatch = (props: any) => {
       window.alert("Please select atleast one favorite before matching");
       return;
     }
-    console.log(favorites);
 
     setLoading(true);
     setModalOpen(true);

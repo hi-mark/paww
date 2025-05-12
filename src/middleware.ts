@@ -6,7 +6,7 @@ const PUBLIC_PATHS = ["/login", "/logout", "/_next", "/favicon.ico", "/api"];
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const isPublic = PUBLIC_PATHS.some((path) => pathname.startsWith(path));
-  const hasAuthCookie = request.cookies.has("fetch-access-token");
+  const hasAuthCookie = request.cookies.has(process.env.AUTH_COOKIE_NAME!);
 
   // Redirect logged-in user away from login page
   if (pathname === "/login" && hasAuthCookie) {

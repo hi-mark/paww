@@ -1,8 +1,7 @@
-// app/api/dogs/search/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
-  const baseUrl = "https://frontend-take-home-service.fetch.com/"; // replace with actual base URL
+  const baseUrl = `${process.env.BASE_URL}/`;
   const url = new URL("/dogs/search", baseUrl);
   const searchParams = req.nextUrl.searchParams;
 

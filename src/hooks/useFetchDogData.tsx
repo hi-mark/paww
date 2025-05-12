@@ -35,7 +35,6 @@ export function useDogSearch(
     const fetchDogs = async () => {
       setLoading(true);
       setError(null);
-      console.log(searchFormData);
 
       try {
         const params = new URLSearchParams();

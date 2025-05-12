@@ -30,8 +30,6 @@ export const InlineModal: React.FC<InlineModalProps> = ({
     <div
       className={styles.backdrop}
       onClick={backdropClosable ? onClose : undefined}
-      role="presentation"
-      aria-hidden="true"
     >
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeading}>

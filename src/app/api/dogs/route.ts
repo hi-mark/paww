@@ -4,7 +4,7 @@ export async function POST(req: Request) {
   const cookieHeader = (await cookies()).toString();
   const body = await req.text();
 
-  const res = await fetch("https://frontend-take-home-service.fetch.com/dogs", {
+  const res = await fetch(`${process.env.BASE_URL}/dogs`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

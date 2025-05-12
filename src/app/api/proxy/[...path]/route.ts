@@ -18,11 +18,11 @@ async function handleProxy(
 ) {
   const { path } = await context.params;
   const endpoint = path.join("/");
-  const apiUrl = `https://frontend-take-home-service.fetch.com/${endpoint}`;
+  const apiUrl = `${process.env.BASE_URL}/${endpoint}`;
 
   const headers = new Headers(req.headers);
   headers.delete("host");
-  headers.set("origin", "https://frontend-take-home-service.fetch.com");
+  headers.set("origin", "process.env.BASE_URL");
 
   let requestBody: string | undefined = undefined;
   if (!["GET", "HEAD"].includes(req.method || "")) {
