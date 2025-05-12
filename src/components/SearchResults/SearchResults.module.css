@@ -8,7 +8,6 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  /* max-width: 90%; */
   gap: 3vh;
 }
 
@@ -119,7 +118,7 @@
 }
 
 .favButton:hover {
-  background-color: var(--hover-blue);
+  background-color: var(--primary-hover);
   color: var(--white);
 }
 

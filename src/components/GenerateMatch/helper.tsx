@@ -24,7 +24,7 @@ export const fetchMatchedDog = async (
     const matchData: Match = await matchRes.json();
 
     // Step 2: Get dog details using matched ID
-    const dogRes = await fetch("/api/proxy/dogs", {
+    const dogRes = await fetch("/api/dogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
