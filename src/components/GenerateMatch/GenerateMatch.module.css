@@ -58,3 +58,37 @@
   max-width: 50%;
   object-fit: cover;
 }
+
+@media (max-width: 992px) {
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    text-align: center;
+    padding: 2.5rem 0 0 0;
+  }
+  .contentWrapper {
+    align-items: center;
+    align-content: center;
+  }
+
+  .ctaImage {
+    align-self: center;
+  }
+}
+@media (max-width: 576px) {
+  .contentWrapper {
+    align-items: center;
+    align-content: center;
+  }
+
+  .ctaHeader {
+    font-size: 2rem;
+  }
+
+  .ctaImage {
+    align-self: center;
+    width: 70%;
+  }
+}
