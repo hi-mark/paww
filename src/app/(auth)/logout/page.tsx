@@ -6,25 +6,19 @@ import { useEffect, useState } from "react";
 export default function LogoutPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  /**
-   * I would maybe make this server side, but to keep it simple for
-   * assessment, logging out on pageload
-   */
   useEffect(() => {
     logout();
   }, []);
 
   async function logout() {
     try {
-      const res = await fetch(
-        "https://frontend-take-home-service.fetch.com/auth/logout",
-        {
-          method: "POST",
-          credentials: "include",
-        }
-      );
+      const res = await fetch("/api/proxy/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
 
-      if (res.ok) {
+      // Treat both 200 and 401 as logout success
+      if (res.ok || res.status === 401) {
         setStatus("success");
       } else {
         setStatus("error");

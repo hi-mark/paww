@@ -19,7 +19,7 @@
 }
 
 .pageTitle {
-  font-size: min(calc(3rem + 2.25vw), 6rem);
+  font-size: min(calc(2.2rem + 2.5vw), 6rem);
   color: var(--muted-white);
   font-weight: 900;
   letter-spacing: -0.1rem;

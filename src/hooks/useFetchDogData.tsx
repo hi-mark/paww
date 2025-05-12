@@ -62,10 +62,9 @@ export function useDogSearch(
         }
 
         // Step 1: Fetch dog IDs
-        const searchRes = await fetch(
-          `https://frontend-take-home-service.fetch.com/dogs/search?${params.toString()}`,
-          { credentials: "include" }
-        );
+        const searchRes = await fetch(`/api/dogs/search?${params.toString()}`, {
+          credentials: "include",
+        });
         if (!searchRes.ok) throw new Error("Failed to fetch dog IDs");
 
         const { resultIds, total }: DogSearchResponse = await searchRes.json();
@@ -77,17 +76,14 @@ export function useDogSearch(
         }
 
         // Step 2: Fetch dog details
-        const dogsRes = await fetch(
-          "https://frontend-take-home-service.fetch.com/dogs",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(resultIds),
-            credentials: "include",
-          }
-        );
+        const dogsRes = await fetch("/api/dogs", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(resultIds),
+          credentials: "include",
+        });
 
         if (!dogsRes.ok) throw new Error("Failed to fetch dog details");
 

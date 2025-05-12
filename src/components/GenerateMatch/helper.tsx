@@ -9,35 +9,29 @@ export const fetchMatchedDog = async (
 ): Promise<Dog | null> => {
   try {
     // Step 1: Get matched dog ID
-    const matchRes = await fetch(
-      "https://frontend-take-home-service.fetch.com/dogs/match",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const matchRes = await fetch("/api/proxy/dogs/match", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-        body: JSON.stringify(Array.from(favoriteDogs)),
-        credentials: "include",
-      }
-    );
+      body: JSON.stringify(Array.from(favoriteDogs)),
+      credentials: "include",
+    });
 
     if (!matchRes.ok) throw new Error("Failed to fetch match");
 
     const matchData: Match = await matchRes.json();
 
     // Step 2: Get dog details using matched ID
-    const dogRes = await fetch(
-      "https://frontend-take-home-service.fetch.com/dogs",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify([matchData.match]),
-        credentials: "include",
-      }
-    );
+    const dogRes = await fetch("/api/proxy/dogs", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([matchData.match]),
+      credentials: "include",
+    });
 
     if (!dogRes.ok) throw new Error("Failed to fetch dog data");
 

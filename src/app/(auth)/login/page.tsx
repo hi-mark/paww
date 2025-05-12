@@ -59,29 +59,26 @@ const Page = () => {
     if (isSubmitting) return;
 
     setIsSubmitting(true);
+
     try {
-      const response = await fetch(
-        "https://frontend-take-home-service.fetch.com/auth/login",
-        {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.userName,
-            email: formData.emailId,
-          }),
-        }
-      );
+      const response = await fetch("/api/proxy/auth/login", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.userName,
+          email: formData.emailId,
+        }),
+      });
 
       if (response.ok) {
         router.push("/");
       } else {
-        throw new Error("Login failed! Invalid response");
+        const errorText = await response.text();
+        throw new Error(errorText);
       }
     } catch (err) {
-      console.error("Login error:", err);
+      console.log("Login error:", err);
       window.alert("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
