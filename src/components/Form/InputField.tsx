@@ -1,19 +1,15 @@
-import { ReactNode } from "react";
 import styles from "./InputField.module.css";
+import {
+  ErrorProps,
+  InputFieldProps,
+  InputLabelProps,
+  InputWrapperProps,
+  LabelledInputProps,
+} from "./types";
 
-type ErrorProps = {
-  name: string;
-  msg?: string | null;
+export const InputWrapper = (props: InputWrapperProps) => {
+  return <div className={styles.inputWrapper}>{props.children}</div>;
 };
-
-type InputFieldProps = {
-  name: string;
-  label: string;
-  value: string;
-  type?: string;
-  error?: string | null;
-  placeholder?: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const ErrorMessage = ({ msg, name }: ErrorProps) => {
   return (
@@ -25,11 +21,6 @@ export const ErrorMessage = ({ msg, name }: ErrorProps) => {
   );
 };
 
-type InputLabelProps = {
-  name: string;
-  children: ReactNode;
-};
-
 export const InputLabel = (props: InputLabelProps) => {
   return (
     <label htmlFor={`input-${props.name}`} className={styles.inputLabel}>
@@ -38,31 +29,35 @@ export const InputLabel = (props: InputLabelProps) => {
   );
 };
 
-type InputWrapperProps = {
-  children: ReactNode;
-};
-export const InputWrapper = (props: InputWrapperProps) => {
-  return <div className={styles.inputWrapper}>{props.children}</div>;
+export const InputField: React.FC<InputFieldProps> = ({
+  name,
+  type = "text",
+  error,
+  ...rest
+}) => {
+  return (
+    <input
+      id={`input-${name}`}
+      type={type}
+      name={name}
+      className={styles.inputBox}
+      aria-invalid={!!error}
+      aria-describedby={error ? `error-${name}` : undefined}
+      {...rest}
+    />
+  );
 };
 
-export const InputField = (props: InputFieldProps) => {
+export const LabelledInput = (props: LabelledInputProps) => {
   const { type = "text", label, name, error, ...rest } = props;
 
   return (
     <InputWrapper>
       <InputLabel name={name}>{label}</InputLabel>
-      <input
-        id={`input-${name}`}
-        type={type}
-        name={name}
-        className={styles.inputBox}
-        aria-invalid={!!error}
-        aria-describedby={error ? `error-${name}` : undefined}
-        {...rest}
-      />
+      <InputField type={type} name={name} error={error} {...rest} />
       <ErrorMessage name={name} msg={error} />
     </InputWrapper>
   );
 };
 
-export default InputField;
+export default LabelledInput;

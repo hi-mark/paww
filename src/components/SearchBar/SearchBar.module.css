@@ -1,0 +1,154 @@
+.searchForm {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0.75rem;
+  margin: 2.5rem 0 0.8rem 0;
+}
+
+.searchFieldsWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 0.4rem;
+}
+
+.inputWrapper {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: baseline;
+  padding-top: 0.6rem;
+
+  border-radius: 2px;
+  background-color: var(--white);
+}
+
+.inputWrapper:focus-within {
+  outline-offset: 2px;
+  outline: 2px solid var(--accent-500);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+.label {
+  color: var(--black);
+  line-height: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding-left: 1.1rem;
+}
+
+.labelledInput {
+  all: unset;
+  width: 85%;
+  max-width: 100%;
+  padding: 0.3rem 1rem 0.9rem 1.1rem;
+}
+
+.selectedBreeds {
+  text-overflow: ellipsis;
+  padding: 0.3rem 0 0.9rem 1.1rem;
+}
+
+.buttonsWrapper {
+  width: 12rem;
+}
+.searchButton {
+  background-color: var(--black);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--muted-white);
+  border: unset;
+  border-radius: 0.5rem;
+
+  font-size: 1.2rem;
+  width: 100%;
+  height: 100%;
+}
+
+.clearFormButton {
+  all: unset;
+  cursor: pointer;
+  color: var(--muted-white);
+  font-weight: 700;
+  padding: 0.3rem;
+  font-size: 0.875rem;
+}
+
+.clearFormButton:hover {
+  color: var(--accent-500);
+  text-decoration: underline;
+}
+
+.breedWrapper {
+  border-radius: 0.5rem 2px 2px 0.5rem;
+  width: 60%;
+}
+.minAgeWrapper {
+  border-radius: 2px;
+  width: 20%;
+}
+.maxAgeWrapper {
+  border-radius: 2px 0.5rem 0.5rem 2px;
+  width: 20%;
+}
+
+.breedsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.checkboxWrapper {
+  flex: 1 1 calc(50% - 12px); /* Two per row */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .searchForm {
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  .searchFieldsWrapper {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .breedWrapper {
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 2px 2px;
+  }
+
+  .buttonsWrapper {
+    width: 100%;
+  }
+
+  .minAgeWrapper {
+    width: calc(50% - 0.2rem);
+    border-radius: 2px 2px 2px 0.5rem;
+  }
+  .maxAgeWrapper {
+    width: calc(50% - 0.2rem);
+    border-radius: 2px 2px 0.5rem 2px;
+  }
+
+  .searchButton {
+    height: 68px;
+    margin-bottom: 0.6rem;
+  }
+
+  .checkboxWrapper {
+    flex: 1 1 100%; /* One per row, in smaller screens */
+  }
+}

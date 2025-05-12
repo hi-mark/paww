@@ -1,0 +1,51 @@
+.iconButton {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.iconButton:hover {
+  background-color: var(--muted-white);
+}
+
+.iconButton:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 2px;
+}
+
+.iconButton:active {
+  transform: scale(0.95);
+}
+
+/* Primary button */
+.primaryButton {
+  all: unset;
+  text-align: center;
+  border-radius: 100rem;
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: 600;
+  padding: 0.5rem 2.4rem;
+  cursor: pointer;
+  transition: all ease 0.2s;
+  margin: 1.5rem 0 1rem 0;
+}
+.primaryButton:focus-visible {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 1px;
+}
+
+.primaryButton:active {
+  background-color: var(--primary-pressed);
+}
+.primaryButton:hover {
+  background-color: var(--primary-500);
+}

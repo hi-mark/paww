@@ -1,27 +1,30 @@
 :root {
-  /* primary colours */
-  --paww-blue: #1b63d3;
-  --paww-yellow: #ffb700;
+  /* Brand */
+  --primary-500: #1b63d3;
+  --accent-500: #ffb700;
 
+  /* neutrals */
   --white: #ffffff;
-  --black: #1b1b1b;
-  --black-alpha-200: rgba(var(--black), 0.58);
-  --black-alpha-100: rgba(var(--black), 0.45);
+  --muted-white: #eff3f7;
 
-  --biege: #f8f7f5;
-  --biege-darker: #f5f4ed;
+  --black: #161616;
+  --black-rgb: 22, 22, 22;
+  --black-600: rgba(var(--black-rgb), 0.58);
+  --black-400: rgba(var(--black-rgb), 0.45);
+
+  /* Backgrounds */
+  --background-1: #f4f8fe; /* very light blue bg */
+
+  /* Interaction States */
+  --primary-hover: #024dc2;
+  --primary-pressed: #0140a1;
 
   /* radius */
-  --pop-up-radius: 1.8rem;
-  --card-radius: 0.8rem;
-}
+  --radius-500: 1.8rem;
+  --radius-400: 0.8rem;
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+  --contaniner-width: min(76.5rem, 90%);
+}
 
 html,
 body {
@@ -30,9 +33,7 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -48,8 +49,26 @@ a {
   text-decoration: none;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+h1 {
+  margin-bottom: 1rem;
+  letter-spacing: -0.05rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--black-600);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--accent-500); /* Only supported in modern browsers */
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.4rem;
   }
-} */
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { PrimaryButton } from "@/components/Buttons/Buttons";
 import { useEffect, useState } from "react";
 
 export default function LogoutPage() {
@@ -15,10 +16,13 @@ export default function LogoutPage() {
 
   async function logout() {
     try {
-      const res = await fetch("/auth/logout", {
-        method: "POST",
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://frontend-take-home-service.fetch.com/auth/logout",
+        {
+          method: "POST",
+          credentials: "include",
+        }
+      );
 
       if (res.ok) {
         setStatus("success");
@@ -32,7 +36,7 @@ export default function LogoutPage() {
   }
 
   return (
-    <div>
+    <>
       <h1>Logout</h1>
 
       {status === "success" ? (
@@ -40,9 +44,11 @@ export default function LogoutPage() {
       ) : (
         <>
           <p>Click below to logout.</p>
-          <button onClick={logout}>Logout</button>
+          <PrimaryButton fullWidth large onClick={logout}>
+            Logout
+          </PrimaryButton>
         </>
       )}
-    </div>
+    </>
   );
 }

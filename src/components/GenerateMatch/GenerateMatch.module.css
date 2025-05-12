@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  max-width: var(--contaniner-width);
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+.cta {
+  background-color: var(--background-1);
+  padding: 0 6rem;
+  border-radius: var(--radius-500);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ctaHeader {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.1rem;
+}
+
+.ctaText {
+  color: var(--black-600);
+  max-width: 20rem;
+}
+
+.imageWrapper {
+  align-self: flex-end;
+}
+
+.ctaImage {
+  align-self: flex-end;
+  width: 40%;
+  object-fit: contain;
+}
+
+.matchWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dataImage {
+  border-radius: var(--radius-400);
+  height: 25rem;
+  max-width: 50%;
+  object-fit: cover;
+}

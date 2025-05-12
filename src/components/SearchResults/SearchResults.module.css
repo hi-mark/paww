@@ -1,0 +1,174 @@
+.searchResults {
+  padding-top: 7vh;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--contaniner-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* max-width: 90%; */
+  gap: 3vh;
+}
+
+.searchHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.resultsCount {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sortButton {
+  all: unset;
+  padding: 0.4rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  background-color: var(--background-1);
+  color: black;
+  border-radius: 100rem;
+  text-align: center;
+  align-items: center;
+}
+
+.sortButton:disabled {
+  opacity: 0.3;
+  cursor: pointer;
+  background-color: var(--background-1);
+}
+.sortButton:hover {
+  color: var(--white);
+  background-color: var(--primary-500);
+}
+.sortButton:focus {
+  outline: 2px solid var(--primary-500);
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 3rem calc((1.5rem * 3) / 2);
+}
+
+.card {
+  background-color: var(--background-1);
+  border-radius: var(--radius-400);
+  padding: 1.6rem;
+  flex: 1 1 calc(33.333% - 1.5rem);
+  max-width: calc(33.333% - 1.5rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: stretch;
+
+  gap: 0.4rem;
+}
+
+.imageWrapper {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.dogImage {
+  width: 100%;
+  max-width: 100%;
+  height: 18rem;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.ageBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  padding: 0.1rem 1rem;
+
+  background-color: black;
+  border-radius: 100rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.favButton {
+  border-radius: 100rem;
+  width: 100%;
+}
+
+.favButton {
+  all: unset;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  border-radius: 100rem;
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+  background-color: var(--white);
+  font-weight: 600;
+  transition: all ease-in-out 0.2s;
+}
+
+.favButton:hover {
+  background-color: var(--hover-blue);
+  color: var(--white);
+}
+
+.favButton:focus {
+  outline: 2px solid var(--primary-500);
+}
+
+.favButton:active {
+  background-color: var(--primary-pressed);
+}
+
+.isFav {
+  background-color: var(--primary-500);
+  color: var(--white);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  align-content: end;
+}
+
+.paginationWrapper {
+  width: 100%;
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2 per row */
+@media (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+  .cardsWrapper {
+    gap: 3rem 1rem;
+  }
+}
+
+/* 1 per row */
+@media (max-width: 576px) {
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .cardsWrapper {
+    gap: 1.8rem 0;
+  }
+}

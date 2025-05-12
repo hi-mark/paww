@@ -1,0 +1,38 @@
+.hero {
+  background-color: var(--primary-500);
+  width: 100%;
+  text-align: center;
+  padding: 5vh 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--contaniner-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.searchResults {
+  padding-top: 7vh;
+}
+
+.pageTitle {
+  font-size: min(calc(3rem + 2.25vw), 6rem);
+  color: var(--muted-white);
+  font-weight: 900;
+  letter-spacing: -0.1rem;
+}
+
+.pageSubTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--muted-white);
+}
+
+@media (max-width: 768px) {
+  .pageSubTitle {
+    font-size: 1.2rem;
+  }
+}

@@ -1,6 +1,7 @@
 "use client";
 
-import InputField from "@/components/Form/InputField";
+import { PrimaryButton } from "@/components/Buttons/Buttons";
+import LabelledInput from "@/components/Form/InputField";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
@@ -33,11 +34,11 @@ const Page = () => {
    * can be handled by HTML itself(required,type)
    * example :  https://www.koharmunish.com/contact
    *
-   * but I am adding JS validation just to showcase form validation using java script
+   * but I am adding JS validation just to showcase simple form validation using java script
    *
    * note 2:
    * current validation behaviour checks for error only on submitting form(and clears error on handle Change),
-   * behaviour can be modified to validate particular field onchange/onblur
+   * behaviour can be modified to validate particular field onchange/onblur etc
    */
   const validateForm = () => {
     const newErrors: Partial<FormData> = {};
@@ -77,7 +78,7 @@ const Page = () => {
       if (response.ok) {
         router.push("/");
       } else {
-        window.alert("Something went wrong. Please try again!");
+        throw new Error("Login failed! Invalid response");
       }
     } catch (err) {
       console.error("Login error:", err);
@@ -91,7 +92,7 @@ const Page = () => {
     <>
       <h1>Welcome Back!</h1>
       <form onSubmit={handleSubmit}>
-        <InputField
+        <LabelledInput
           value={formData.userName}
           label="User Name"
           name="userName"
@@ -99,7 +100,7 @@ const Page = () => {
           onChange={handleChange}
           error={errors.userName}
         />
-        <InputField
+        <LabelledInput
           value={formData.emailId}
           label="Email ID"
           name="emailId"
@@ -108,9 +109,9 @@ const Page = () => {
           placeholder="john@abc.com"
           error={errors.emailId}
         />
-        <button type="submit">
+        <PrimaryButton fullWidth large type="submit">
           {isSubmitting ? "Logging in..." : "Log in"}
-        </button>
+        </PrimaryButton>
       </form>
     </>
   );
