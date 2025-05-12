@@ -19,7 +19,13 @@ export const MatchedDogDisplay = (props: any) => {
           companion for your home.
         </p>
 
-        <PrimaryButton>Proceed to Next Step</PrimaryButton>
+        <PrimaryButton
+          onClick={() => {
+            window.open("https://www.koharmunish.com/contact", "_blank");
+          }}
+        >
+          Proceed to Next Step
+        </PrimaryButton>
       </div>
       <img src={data.img} alt={data.name} className={styles.dataImage} />
     </div>
