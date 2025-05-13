@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { cn } from "@/utils";
 import styles from "./SearchBar.module.css";
 import { SearchFormData } from "@/hooks/useFetchDogData";
@@ -9,9 +9,13 @@ import { BreedSelectorModal } from "./BreedsDisplay";
 
 interface SearchBarProps {
   setSearchFormData: (data: SearchFormData) => void;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ setSearchFormData }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  setSearchFormData,
+  setCurrentPage,
+}) => {
   const [breeds, setBreeds] = useState<string[]>([]);
   const [minAge, setMinAge] = useState<number | undefined>();
   const [maxAge, setMaxAge] = useState<number | undefined>();
@@ -48,6 +52,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchFormData }) => {
 
   const updateFilters = (e: React.FormEvent) => {
     e.preventDefault();
+    setCurrentPage(1);
     setSearchFormData({
       breeds: Array.from(selectedBreeds),
       minAge: minAge ?? null,
@@ -57,6 +62,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchFormData }) => {
 
   const clearFilter = (e: React.FormEvent) => {
     e.preventDefault();
+    setCurrentPage(1);
     setMinAge(undefined);
     setMaxAge(undefined);
     setSelectedBreeds(new Set());

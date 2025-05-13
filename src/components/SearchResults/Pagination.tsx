@@ -63,6 +63,7 @@ const Pagination = (props: any) => {
           }}
           onBlur={() => {
             setValue(keepValueInBound(value));
+            setCurrentPage(1);
             setFieldsPerPage(keepValueInBound(value));
           }}
           style={{ maxWidth: "90px" }}

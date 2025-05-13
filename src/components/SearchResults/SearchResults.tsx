@@ -30,7 +30,10 @@ const SearchResults = (props: any) => {
             className={styles.sortButton}
             aria-label="Sorting Options"
             value={sortingOrder}
-            onChange={(e) => setSortingOrder(e.target.value)}
+            onChange={(e) => {
+              setCurrentPage(1);
+              setSortingOrder(e.target.value);
+            }}
           >
             {Object.entries(sortOptions).map(([key, val]) => (
               <option key={key} value={val}>

@@ -45,7 +45,10 @@ export default function HomePage() {
             Adjust filters to help us find your paww-fect partner and generate a
             match
           </h2>
-          <SearchBar setSearchFormData={setSearchFormData} />
+          <SearchBar
+            setSearchFormData={setSearchFormData}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </section>
 
