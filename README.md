@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐾 Paww - Fetch Frontend
 
-## Getting Started
+Every team and developer have their own coding style and preferences, so if any part of my implementation doesn’t align with yours, just let me know—I’m happy to adjust and resubmit.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Deployed At
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[https://paww-drab.vercel.app](https://paww-drab.vercel.app)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Run It Locally
 
-## Learn More
+1. **Clone** the repository
+2. **Install** dependencies – `npm install`
+3. **Create** an `.env` next to `next.config.*` with:
 
-To learn more about Next.js, take a look at the following resources:
+   ```env
+   BASE_URL=https://frontend-take-home-service.fetch.com
+   AUTH_COOKIE_NAME=fetch-access-token
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Start** the dev server – `npm run dev`
+5. Open [http://localhost:3000](http://localhost:3000) and explore.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+(Node 18+ recommended.)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Time Breakdown
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+It was roughly work of 1.5 working day for me. Below is the rough allocation of hours. With time crunch I traded polish for progess at few spots. Using a coponent library would have helped and made things faster - lessons learnt.
+
+| Task                             | Time Spent |
+| -------------------------------- | ---------- |
+| Requirement analysis             | \~30 min   |
+| Basic Figma wireframe            | \~1.5 hr   |
+| Core feature implementation      | \~8 hrs    |
+| Proxy/auth, cleanup & deployment | \~3 hrs    |
+
+---
+
+## If I Had Another Day…
+
+Given more time/in prod, I would have done many things next or differently including:
+
+- **Tests, tests** – Jest unit tests and cypress end-to-end testing.
+- **Better states** – skeleton loaders, toast errors, the good stuff.
+- **Component Library** – I used vanilla CSS to showcase my understanding of CSS, but component library would speed up dev, make it more consistent and improve accessiblity.
+- **API wrapper** – prolly create a fetch wrapper to do generics like header etc.
+- **SSR** – see what all I can render server side.
+- **Persist favourites** – localStorage or a api endpoint so we don't lose favorites on refresh.
+- **State Management** – if app was any bigger than prolly use app wide state managemnt like context api
+
+---
+
+## Let’s Chat
+
+I’m always up for feedback. Connect with me on [LinkedIn](https://www.linkedin.com/in/munish-kohar/) and let’s talk dogs, code, or your favourite beer.
+
+_Thanks for reading._ 🐶
